@@ -12,12 +12,8 @@ function Homepage() {
 
   useEffect(() => {
     const getNews = async function () {
-      try {
-        const { data } = await axios.get(
-          "https://jsonplaceholder.typicode.com/photos"
-        );
-        dispatch(Actions.homePageActions.setNews(data));
-      } catch (err) {}
+        dispatch(Actions.homePageActions.setNews());
+      
     };
     getNews();
   }, [dispatch]);
@@ -33,7 +29,7 @@ function Homepage() {
                 }}
                 cover={<img alt="example" src={photo.url} />}
               >
-                <Meta title={photo.title} />
+                <Meta title={photo.title.slice(0,20)} />
               </Card>
        
         ))}

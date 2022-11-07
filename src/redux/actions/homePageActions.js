@@ -1,8 +1,18 @@
 
 import ActionTypes from "../actionTypes";
-const setNews= (data) => {
+import axios from "axios";
+const setNews=  () => {
+     return async function (dispatch){
+        const { data } = await axios.get(
+            "https://jsonplaceholder.typicode.com/photos"
+          );
 
-    return {type:ActionTypes.home.SET_NEWS,payload: data}
+          dispatch({type:ActionTypes.home.SET_NEWS,payload:data})
+     }
+
+  
+
+    // return {type:ActionTypes.home.SET_NEWS,payload: data}
    
 
 };
