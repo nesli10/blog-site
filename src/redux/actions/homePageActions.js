@@ -12,7 +12,7 @@ const setNews=  () => {
 
   
 
-    // return {type:ActionTypes.home.SET_NEWS,payload: data}
+   
    
 
 };

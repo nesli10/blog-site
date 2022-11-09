@@ -2,8 +2,9 @@ import React from "react";
 import { Card } from "antd";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
 import Actions from "../redux/actions";
+import {Link} from "react-router-dom";
+
 
 function Homepage() {
   const photoData = useSelector((state) => state.photo);
@@ -21,8 +22,9 @@ function Homepage() {
   return (
     <div className="site-card-wrapper">
       {photoData.length > 0 &&
-       photoData.filter((obj) => 100 > obj.id).map((photo) => (
-              <Card className="card1"
+       photoData.filter((obj) => 101 > obj.id).map((photo) => (
+        
+              <Card key={photo.id} className="card1"
                 hoverable
                 style={{
                   width: 240,
@@ -30,6 +32,7 @@ function Homepage() {
                 cover={<img alt="example" src={photo.url} />}
               >
                 <Meta title={photo.title.slice(0,20)} />
+                <Link style={{color: "blue",padding:"170px"}} to={"/detail/"+photo.id}>detay</Link>
               </Card>
        
         ))}
