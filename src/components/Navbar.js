@@ -6,12 +6,8 @@ export default function Navbar() {
     <div >
        <Menu mode="horizontal" className="navbar"  >
     <Menu.Item >
-    <Link to="/loginPage">
-    <Button type="primary">admin</Button>
-    </Link>
-    <Link to="/">
-    <Button type="primary" style={{marginLeft:"10px"}}>Anasayfa</Button>
-    </Link>
+    <Button  ><Link to="/loginpage">Admin </Link></Button>
+    <Button  style={{marginLeft:"10px"}}> <Link to="/">Anasayfa </Link></Button>
     </Menu.Item>
   </Menu>
     </div>
