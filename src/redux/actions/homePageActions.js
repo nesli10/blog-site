@@ -9,10 +9,6 @@ const setNews=  () => {
 
           dispatch({type:ActionTypes.home.SET_NEWS,payload:data})
      }
-
-  
-
-   
    
 
 };
