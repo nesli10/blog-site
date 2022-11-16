@@ -1,0 +1,1 @@
+export const SET_LOGİN = "SET_LOGİN";
