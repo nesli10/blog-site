@@ -4,7 +4,7 @@ const setLogin =
   ({ email, password }) =>
   (dispatch) => {
     axios
-      .post("", {
+      .post("https://vega-gts-be.mahrek.com.tr/login", {
         email,
         password,
       })
