@@ -5,7 +5,6 @@ const INITIAL_STATE = { token: null, email: null, password: null };
 export const loginPageReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ActionTypes.login.SET_LOGİN:
-        console.log(action);
       return {
         ...state,
         token: action.data.token,

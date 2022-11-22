@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Card } from "antd";
 import { useSelector } from 'react-redux';
 const PostDetail = () => {
   const {photoId} = useParams()
-  const photo =  useSelector(state=>state.photo)
+  const photo =  useSelector(state=>state.homeReducer.photo)
   const currentPhoto = photo.find(p=>p.id == photoId)
   const { Meta } = Card;
   return (
