@@ -17,21 +17,36 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
         photo: state.photo.filter((photo) => photo.id !== action.payload),
       };
     case ActionTypes.home.ADD_NEWS:
-        const newPhoto = action.payload.photo;
+      const newPhoto = action.payload.photo;
       return {
-        ...state, 
+        ...state,
         photo: [
-            ...state.photo,
-            {
-                id: action.payload.newDate,
-                url: newPhoto.thumbUrl,
-                albumId: newPhoto.uid,
-                thumbnailUrl: newPhoto.thumbUrl,
-                title: action.payload.title
-            }
+          ...state.photo,
+          {
+            id: action.payload.newDate,
+            url: newPhoto.thumbUrl,
+            thumbnailUrl: newPhoto.thumbUrl,
+            albumId: newPhoto.uid,
+            title: action.payload.title,
+          },
         ],
       };
-
+    case ActionTypes.home.EDIT_NEWS:
+      const newPhotos = state.photo.map((photo) => {
+        if (photo.id === action.payload.id) {
+          return {
+            ...photo,
+            title: action.payload.title,
+            url: action.payload.thumbUrl,
+            thumbnailUrl: action.payload.thumbUrl,
+          };
+        }
+        return photo;
+      });
+      return {
+        ...state,
+        photo: [...newPhotos],
+      };
     default:
       return state;
   }

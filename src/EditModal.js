@@ -1,30 +1,30 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Modal, Button, Form, Input, Upload } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
 import Actions from "./redux/actions";
+import { Button, Modal, Form, Input, Upload } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
 import alertify from "alertifyjs";
-
-const AddModal = () => {
+const EditModal = ({oldPhoto}) => {
   const dispatch = useDispatch();
-
+  const handleUpdate = (values) => {
+    const { title, thumbUrl } = values;
+    const updatedUser = {
+      title,
+      thumbUrl: thumbUrl[0].thumbUrl,
+      id: oldPhoto.id,
+    };
+    dispatch(Actions.homePageActions.editNews(updatedUser));
+    alertify.success("güncellendi");
+  };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
   };
-  const handleCancel = () => {
+  const handleOk = () => {
     setIsModalOpen(false);
   };
-  const onFinish = (values) => {
-    const { title, photo } = values;
-    dispatch(
-      Actions.homePageActions.addNews({
-        title,
-        photo: photo[0],
-        newDate: new Date().toISOString(),
-      })
-    );
-    alertify.success("eklendi");
+  const handleCancel = () => {
+    setIsModalOpen(false);
   };
 
   const validateMessages = {
@@ -41,17 +41,18 @@ const AddModal = () => {
     <>
       <Button
         style={{
-          top: "10px",
+          right: "60px",
+          top: "20px",
         }}
         type="primary"
         onClick={showModal}
       >
-        Ekle
+        düzenle
       </Button>
       <Modal
-        title="Add News"
+        title="düzenle"
         open={isModalOpen}
-        onOk={handleCancel}
+        onOk={handleOk}
         onCancel={handleCancel}
       >
         <Form
@@ -62,14 +63,14 @@ const AddModal = () => {
             span: 16,
           }}
           name="nest-messages"
-          onFinish={onFinish}
           validateMessages={validateMessages}
+          onFinish={handleUpdate}
         >
           <Form.Item name="title" label="Title">
             <Input />
           </Form.Item>
           <Form.Item
-            name="photo"
+            name="thumbUrl"
             label="Upload"
             valuePropName="fileList"
             getValueFromEvent={normFile}
@@ -77,7 +78,7 @@ const AddModal = () => {
           >
             <Upload
               multiple={false}
-              name="logo"
+              name="thumbUrl"
               action="/upload.do"
               listType="picture"
             >
@@ -92,7 +93,10 @@ const AddModal = () => {
               offset: 8,
             }}
           >
-            <Button type="primary" htmlType="submit">
+            <Button
+              type="primary"
+              htmlType="submit"
+            >
               Submit
             </Button>
           </Form.Item>
@@ -101,5 +105,4 @@ const AddModal = () => {
     </>
   );
 };
-
-export default AddModal;
+export default EditModal;

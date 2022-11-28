@@ -4,19 +4,20 @@ import Actions from "../redux/actions";
 import { Button, Card } from "antd";
 import alertify from "alertifyjs";
 import AddModal from "../AddModal";
+import EditModal from "../EditModal";
 
 function AdminPage() {
   const photoData = useSelector((state) => state.homeReducer.photo);
   const dispatch = useDispatch();
   const { Meta } = Card;
-  console.log(photoData);
+  
 
   const removePhoto = (id) => {
     dispatch(Actions.homePageActions.deleteNews(id));
     alertify.error("silindi");
   };
   /*
-  PhotoCard.jsx
+  PhotoCard.js
   Card component olsun tamamen, admin ise buttonlar gözüksün falan filan
   */
   return (
@@ -47,16 +48,7 @@ function AdminPage() {
                 {" "}
                 x
               </Button>
-              <Button
-                style={{
-                  right: "60px",
-                  top: "20px",
-                }}
-                type="primary"
-              >
-                {" "}
-                Düzenle
-              </Button>
+              <EditModal oldPhoto={photo} />
             </Card>
           ))}
       </div>

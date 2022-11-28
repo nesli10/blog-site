@@ -18,10 +18,25 @@ const addNews = (news) => ({
   type: ActionTypes.home.ADD_NEWS,
   payload: news,
 });
+
+const editNews = (news) => {
+  const news2 = {
+    id: news.id,
+    title: news.title,
+    thumbUrl: news.thumbUrl,
+  };
+  return {
+    type: ActionTypes.home.EDIT_NEWS,
+    payload: news2,
+  };
+  
+};
+
 const homePageActions = {
   setNews,
   deleteNews,
   addNews,
+  editNews,
 };
 
 export default homePageActions;
