@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Actions from "./redux/actions";
 import { Button, Modal, Form, Input, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import alertify from "alertifyjs";
-const EditModal = ({oldPhoto}) => {
+const EditModal = ({ oldPhoto }) => {
   const dispatch = useDispatch();
+
   const handleUpdate = (values) => {
-    const { title, thumbUrl } = values;
+    const { title, thumbnailUrl } = values;
     const updatedUser = {
       title,
-      thumbUrl: thumbUrl[0].thumbUrl,
+      thumbnailUrl: thumbnailUrl[0].thumbUrl,
       id: oldPhoto.id,
     };
+    if (title === undefined) {
+      updatedUser.title = oldPhoto.title;
+    }
     dispatch(Actions.homePageActions.editNews(updatedUser));
     alertify.success("güncellendi");
   };
@@ -67,20 +71,26 @@ const EditModal = ({oldPhoto}) => {
           onFinish={handleUpdate}
         >
           <Form.Item name="title" label="Title">
-            <Input />
+            <Input name="title" defaultValue={oldPhoto.title}  />
           </Form.Item>
           <Form.Item
-            name="thumbUrl"
+            name="thumbnailUrl"
             label="Upload"
             valuePropName="fileList"
             getValueFromEvent={normFile}
-            extra="photo"
           >
             <Upload
-              multiple={false}
-              name="thumbUrl"
+              name="thumbnailUrl"
               action="/upload.do"
               listType="picture"
+              defaultFileList={[
+                {
+                  uid: oldPhoto.id,
+                  name: oldPhoto.title,
+                  status: "done",
+                  url: oldPhoto.thumbnailUrl,
+                },
+              ]}
             >
               <Button icon={<UploadOutlined />} upload>
                 {" "}
@@ -93,10 +103,7 @@ const EditModal = ({oldPhoto}) => {
               offset: 8,
             }}
           >
-            <Button
-              type="primary"
-              htmlType="submit"
-            >
+            <Button type="primary" htmlType="submit">
               Submit
             </Button>
           </Form.Item>

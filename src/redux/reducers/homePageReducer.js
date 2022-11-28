@@ -25,7 +25,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
           {
             id: action.payload.newDate,
             url: newPhoto.thumbUrl,
-            thumbnailUrl: newPhoto.thumbUrl,
+            thumbnailUrl: newPhoto.thumbnailUrl,
             albumId: newPhoto.uid,
             title: action.payload.title,
           },
@@ -37,8 +37,8 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
           return {
             ...photo,
             title: action.payload.title,
-            url: action.payload.thumbUrl,
-            thumbnailUrl: action.payload.thumbUrl,
+            url: action.payload.thumbnailUrl,
+            thumbnailUrl: action.payload.thumbnailUrl,
           };
         }
         return photo;

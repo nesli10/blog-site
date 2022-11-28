@@ -20,14 +20,9 @@ const addNews = (news) => ({
 });
 
 const editNews = (news) => {
-  const news2 = {
-    id: news.id,
-    title: news.title,
-    thumbUrl: news.thumbUrl,
-  };
   return {
     type: ActionTypes.home.EDIT_NEWS,
-    payload: news2,
+    payload: news,
   };
   
 };
