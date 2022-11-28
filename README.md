@@ -1,4 +1,4 @@
-# api kullanarak crud işlemlerinin yapıldığı blog sitesi
+# api kullanarak redux ile crud işlemlerinin yapıldığı blog sitesi
 
 apiden veri çekme,detay gösterme, login işlemi ve ekleme, silme, güncelleme işlemlerinin yapıldığı bir web sitesi.
 tasarımda antdesign kütüphanesi kullanıldı.
