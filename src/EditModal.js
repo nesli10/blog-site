@@ -31,9 +31,7 @@ const EditModal = ({ oldPhoto }) => {
     setIsModalOpen(false);
   };
 
-  const validateMessages = {
-    required: "${label} is required!",
-  };
+
   const normFile = (e) => {
     if (Array.isArray(e)) {
       return e;
@@ -67,7 +65,7 @@ const EditModal = ({ oldPhoto }) => {
             span: 16,
           }}
           name="nest-messages"
-          validateMessages={validateMessages}
+        
           onFinish={handleUpdate}
         >
           <Form.Item name="title" label="Title">
