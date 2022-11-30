@@ -8,6 +8,7 @@ import LoginPage from "./components/LoginPage";
 import AdminPage from "./components/AdminPage";
 import { useDispatch } from "react-redux";
 import Actions from "./redux/actions";
+import "alertifyjs/build/css/alertify.min.css";
 
 function App() {
   const dispatch = useDispatch();
