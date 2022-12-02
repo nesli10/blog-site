@@ -20,9 +20,8 @@ padding-right: 90px;
 }
 .detayBaslık{
  color: blue;
- position:relative;
- left:500px;
  font-weight: bold;
+ text-align: center;
 }
 
 .navbar {
