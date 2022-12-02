@@ -1,14 +1,28 @@
 .site-card-wrapper{
 display: flex;
 flex-wrap: wrap ;
-margin:70px
+margin:70px;
+justify-content: center;
 }
 
 .card1{
 margin: 30px;
 border-radius: 10px;
-border-color:burlywood
+border-color:burlywood;
 
+
+}
+.detayYazı{
+position: relative;
+bottom:60px;
+padding-left: 90px;
+padding-right: 90px;
+}
+.detayBaslık{
+ color: blue;
+ position:relative;
+ left:500px;
+ font-weight: bold;
 }
 
 .navbar {
@@ -23,7 +37,3 @@ background-color:rgb(7, 11, 16);
     
    
 }
-
-
-
- 
