@@ -18,6 +18,7 @@ const EditModal = ({ oldPhoto }) => {
       updatedUser.title = oldPhoto.title;
     }
     dispatch(Actions.homePageActions.editNews(updatedUser));
+     setIsModalOpen(false);
     alertify.success("güncellendi");
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
