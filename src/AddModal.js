@@ -4,10 +4,9 @@ import { Modal, Button, Form, Input, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import Actions from "./redux/actions";
 import alertify from "alertifyjs";
-
 const AddModal = () => {
   const dispatch = useDispatch();
-
+  const [form] = Form.useForm();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -24,8 +23,10 @@ const AddModal = () => {
         newDate: new Date().toISOString(),
       })
     );
-     setIsModalOpen(false);
+    form.resetFields();
+    setIsModalOpen(false);
     alertify.success("eklendi");
+    
   };
 
   const validateMessages = {
@@ -56,6 +57,7 @@ const AddModal = () => {
         onCancel={handleCancel}
       >
         <Form
+        form={form}
           labelCol={{
             span: 8,
           }}
@@ -67,7 +69,7 @@ const AddModal = () => {
           validateMessages={validateMessages}
         >
           <Form.Item name="title" label="Title">
-            <Input />
+            <Input  />
           </Form.Item>
           <Form.Item
             name="photo"
@@ -93,7 +95,7 @@ const AddModal = () => {
               offset: 8,
             }}
           >
-            <Button type="primary" htmlType="submit">
+            <Button  type="primary" htmlType="submit">
               Submit
             </Button>
           </Form.Item>
