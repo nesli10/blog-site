@@ -24,6 +24,7 @@ const AddModal = () => {
         newDate: new Date().toISOString(),
       })
     );
+     setIsModalOpen(false);
     alertify.success("eklendi");
   };
 
