@@ -29,10 +29,12 @@ background-color:rgb(7, 11, 16);
 }
 
 .login{
-    width: 450px;
+    width: 35%;
     position: relative;
-    left:300px;
-    margin:80px;
+    left:30%; 
+    padding-top: 10%;
+   
+}
     
    
 }
