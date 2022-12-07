@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Actions from "./redux/actions";
 import { Button, Modal, Form, Input, Upload } from "antd";
@@ -17,8 +17,9 @@ const EditModal = ({ oldPhoto }) => {
     if (title === undefined) {
       updatedUser.title = oldPhoto.title;
     }
+
     dispatch(Actions.homePageActions.editNews(updatedUser));
-     setIsModalOpen(false);
+    setIsModalOpen(false);
     alertify.success("güncellendi");
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,7 +33,6 @@ const EditModal = ({ oldPhoto }) => {
     setIsModalOpen(false);
   };
 
-
   const normFile = (e) => {
     if (Array.isArray(e)) {
       return e;
@@ -42,14 +42,7 @@ const EditModal = ({ oldPhoto }) => {
 
   return (
     <>
-      <Button
-        style={{
-          right: "60px",
-          top: "20px",
-        }}
-        type="primary"
-        onClick={showModal}
-      >
+      <Button type="primary" onClick={showModal}>
         düzenle
       </Button>
       <Modal
@@ -66,11 +59,10 @@ const EditModal = ({ oldPhoto }) => {
             span: 16,
           }}
           name="nest-messages"
-        
           onFinish={handleUpdate}
         >
           <Form.Item name="title" label="Title">
-            <Input name="title" defaultValue={oldPhoto.title}  />
+            <Input name="title" defaultValue={oldPhoto.title} />
           </Form.Item>
           <Form.Item
             name="thumbnailUrl"
@@ -112,3 +104,4 @@ const EditModal = ({ oldPhoto }) => {
   );
 };
 export default EditModal;
+
