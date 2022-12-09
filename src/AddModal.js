@@ -20,7 +20,7 @@ const AddModal = () => {
       Actions.homePageActions.addNews({
         title,
         photo: photo[0],
-        newDate: new Date().toISOString(),
+        newDate: ( Number(new Date())),
       })
     );
     form.resetFields();
@@ -106,3 +106,4 @@ const AddModal = () => {
 };
 
 export default AddModal;
+
