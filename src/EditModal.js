@@ -10,17 +10,15 @@ const EditModal = ({ oldPhoto }) => {
   const handleUpdate = (values) => {
     const { title, thumbnailUrl } = values;
     const updatedUser = {
-      title,
-      thumbnailUrl: thumbnailUrl[0].thumbUrl,
+      title: title ? title : oldPhoto.title,
+      thumbnailUrl: thumbnailUrl ?  thumbnailUrl[0].thumbUrl : oldPhoto.thumbnailUrl,
       id: oldPhoto.id,
     };
-    if (title === undefined) {
-      updatedUser.title = oldPhoto.title;
-    }
-
     dispatch(Actions.homePageActions.editNews(updatedUser));
     setIsModalOpen(false);
+    if(title || thumbnailUrl){
     alertify.success("güncellendi");
+    }
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
@@ -104,4 +102,5 @@ const EditModal = ({ oldPhoto }) => {
   );
 };
 export default EditModal;
+
 
