@@ -47,7 +47,7 @@ function AdminPage() {
             >
               <Button type="primary" danger>
                 {" "}
-                x
+               sil
               </Button>
             </Popconfirm>
 
