@@ -7,19 +7,27 @@ const PostDetail = () => {
   const photo = useSelector((state) => state.homeReducer.photo);
   const currentPhoto = photo.find((p) => p.id == photoId);
   const { Meta } = Card;
+  document.title = "Detay Sayfası"
   return (
     <div>
       <div className="site-card-wrapper">
-        <Card
+        <Card 
           key={currentPhoto.id}
-          className="card1"
           hoverable
-          style={{
-            width: "350px",
-          }}
-          cover={<img alt="example" src={currentPhoto.url} />}
+           style={{
+            width: "650px",
+            borderRadius:"30px"
+           }}
+          cover={<img  style={{
+            height: "350px",
+            borderRadius:"30px"
+           }} alt="example" src={currentPhoto.url} />}
         >
-          <Meta title={currentPhoto.title} />
+          <Meta  style={{
+          position:"relative",
+          left:"60px"
+           }}
+           title={currentPhoto.title}  />
         </Card>
       </div>
       <div className="detayYazı">
