@@ -1,5 +1,6 @@
-import React from "react";
+import React,{useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Actions from "../redux/actions";
 import { Button, Space, Table, Popconfirm } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
@@ -10,11 +11,19 @@ import EditModal from "../EditModal";
 function AdminPage() {
   const photoData = useSelector((state) => state.homeReducer.photo);
   const dispatch = useDispatch();
+  document.title = "Admin Sayfası"
 
   const removePhoto = (id) => {
     dispatch(Actions.homePageActions.deleteNews(id));
     alertify.error("silindi");
   };
+  const navigate = useNavigate();
+  const [admin,setAdmin] =useState(true);
+  const handleLogout = () => {
+       setAdmin(false);
+      navigate("/loginpage");
+    
+    };
   const columns = [
     {
       title: "id",
@@ -47,7 +56,7 @@ function AdminPage() {
             >
               <Button type="primary" danger>
                 {" "}
-               sil
+                sil
               </Button>
             </Popconfirm>
 
@@ -60,6 +69,20 @@ function AdminPage() {
 
   return (
     <div>
+      <div>
+      { admin ? (
+            <Button type="primary"
+            style={{
+              position:'relative',
+              left:"94%"
+            }}
+             onClick={handleLogout}>
+              logout
+            </Button>
+          ) : (
+            ""
+          )}
+      </div>
       <AddModal></AddModal>
       <div>
         <Table
@@ -74,3 +97,4 @@ function AdminPage() {
 }
 
 export default AdminPage;
+
