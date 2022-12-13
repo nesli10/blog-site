@@ -1,30 +1,43 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Checkbox, Form, Input } from "antd";
-import Actions from "../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
+//import Actions from "../redux/actions";
+//import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { GoogleOutlined } from '@ant-design/icons';
+
 
 const LoginPage = () => {
-  const dispatch = useDispatch();
+  document.title = "Giriş Sayfası"
+  //const dispatch = useDispatch();
   const navigate = useNavigate();
-  const loginData = useSelector((state) => state.login);
+  //const loginData = useSelector((state) => state.login);
+ 
+  // const onFinish = (values) => {
+  //   // betul.aydemir@mahrek.com.tr
+  //   // 123
 
-  const onFinish = (values) => {
-    // betul.aydemir@mahrek.com.tr
-    // 123
-
-    dispatch(
-      Actions.loginPageActions.setLogin({
-        email: values.email,
-        password: values.password,
-      })
-    );
-  };
-  useEffect(() => {
-    if (loginData.token) {
-      navigate("/adminpage");
+  //   dispatch(
+  //     Actions.loginPageActions.setLogin({
+  //       email: values.email,
+  //       password: values.password,
+  //     })
+  //   );
+  // };
+   const [admin,setAdmin] =useState(false);
+    const onFinish = ()=>{
+      setAdmin(true);
     }
-  }, [loginData]);
+   useEffect(() =>{
+    if(admin){
+      navigate("/adminpage")
+    }
+    },[admin] );
+  
+  // useEffect(() => {
+  //   if (loginData.token) {
+  //     navigate("/adminpage");
+  //   }
+  // }, [loginData]);
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -32,6 +45,8 @@ const LoginPage = () => {
  
 
   return (
+    <div>
+    <h1 className="loginbaslik">GİRİŞ SAYFASI</h1>
     <Form
       className="login"
       name="basic"
@@ -48,6 +63,19 @@ const LoginPage = () => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
+      <Form.Item
+        wrapperCol={{
+          offset: 10,
+          span: 16,
+        }}
+      >
+        <Button  type="primary"
+        style={{ borderRadius:"20px"}}
+        >
+          <GoogleOutlined />
+          Google ile giriş yap
+        </Button>
+      </Form.Item>
       <Form.Item
         label="email"
         name="email"
@@ -96,6 +124,7 @@ const LoginPage = () => {
         </Button>
       </Form.Item>
     </Form>
+    </div>
   );
 };
 
