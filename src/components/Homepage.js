@@ -91,7 +91,7 @@ function Homepage() {
               style={{
                 width: 240,
               }}
-              cover={<img alt="example" src={photo.url} />}
+              cover={<img style={{ borderRadius: "10px" }} alt="example" src={photo.url} />}
             >
               <Meta title={photo.title.slice(0, 20)} />
               <Link
