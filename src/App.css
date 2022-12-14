@@ -4,21 +4,31 @@ flex-wrap: wrap ;
 margin:70px;
 justify-content: center;
 overflow: hidden;
+
 }
+.site-card-wrapper2{
+  display: flex;
+  flex-wrap: wrap ;
+  margin:70px;
+  justify-content: center;
+  overflow: hidden;
+  padding:10px;
+  
+  }
+
 
 .card1{
 margin: 30px;
 border-radius: 10px;
 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-
-
 }
 .detayYazı{
-position: relative;
-bottom:60px;
+
 padding-left: 90px;
 padding-right: 90px;
+padding-bottom: 60px;
+
 }
 .detayBaslık{
  color: blue;
@@ -45,6 +55,4 @@ background-color:rgb(7, 11, 16);
 
 
 
-
- 
 
