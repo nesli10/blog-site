@@ -1,7 +1,9 @@
 import React from "react";
 import { Menu, Button } from "antd";
 import { Link } from "react-router-dom";
- //import { useNavigate } from "react-router-dom";
+import { AudioOutlined } from "@ant-design/icons";
+import { Input } from "antd";
+//import { useNavigate } from "react-router-dom";
 //import { useSelector } from "react-redux";
 
 export default function Navbar() {
@@ -10,8 +12,18 @@ export default function Navbar() {
   // const handleLogout = () => {
   //    loginData.token = "";
   //   navigate("/loginpage");
-  
+
   // };
+  const { Search } = Input;
+
+  <AudioOutlined
+    style={{
+      fontSize: 16,
+      color: "#1890ff",
+    }}
+  />;
+
+  const onSearch = (value) => console.log(value);
   return (
     <div>
       <Menu mode="horizontal" className="navbar">
@@ -19,11 +31,13 @@ export default function Navbar() {
           <Button>
             <Link to="/loginpage">Admin </Link>
           </Button>
-          <Button style={{ marginLeft: "10px" }}>
-            {" "}
+        </Menu.Item>
+        <Menu.Item>
+          <Button>
             <Link to="/">Anasayfa </Link>
-          </Button  >
-          {/* {loginData.token ? (
+          </Button>
+        </Menu.Item>
+        {/* {loginData.token ? (
             <Button 
             style={{
               position:'relative',
@@ -35,6 +49,16 @@ export default function Navbar() {
           ) : (
             ""
           )} */}
+        <Menu.Item style={{ marginLeft: "auto" }}>
+          <Search
+            placeholder="input search text"
+            onSearch={onSearch}
+            style={{
+              width: 200,
+              marginTop: "0.5rem",
+              borderRadius: "20px",
+            }}
+          />
         </Menu.Item>
       </Menu>
     </div>
