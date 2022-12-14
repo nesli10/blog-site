@@ -51,33 +51,31 @@ function Homepage() {
   document.title = "Anasayfa";
   return (
     <div>
-      <h3 style={{ padding: "20px", position: "relative", left: "80%" }}>
-        Bizi Takip Edin !{" "}
-      </h3>
-      <InstagramOutlined
+      <div
         style={{
-          fontSize: "20px",
-          position: "relative",
-          left: "91%",
-          bottom: "50px",
+          display: "flex",
+          justifyContent: "end",
+          gap: "1rem",
+          alignItems: "center",
         }}
-      />
-      <FacebookOutlined
-        style={{
-          fontSize: "20px",
-          position: "relative",
-          left: "91%",
-          bottom: "50px",
-        }}
-      />
-      <TwitterOutlined
-        style={{
-          fontSize: "20px",
-          position: "relative",
-          left: "91%",
-          bottom: "50px",
-        }}
-      />
+      >
+        <h3>Bizi Takip Edin !</h3>
+        <InstagramOutlined
+          style={{
+            fontSize: "20px",
+          }}
+        />
+        <FacebookOutlined
+          style={{
+            fontSize: "20px",
+          }}
+        />
+        <TwitterOutlined
+          style={{
+            fontSize: "20px",
+          }}
+        />
+      </div>
 
       <h1 style={{ position: "relative", left: "110px" }}>BLOG HABERLERİ</h1>
       <h2 style={{ position: "relative", left: "110px" }}>
