@@ -59,7 +59,7 @@ function Homepage() {
           alignItems: "center",
         }}
       >
-        <h3>Bizi Takip Edin !</h3>
+        <h3 style={{ position: "relative", top: "5px" }}>Bizi Takip Edin !</h3>
         <InstagramOutlined
           style={{
             fontSize: "20px",
