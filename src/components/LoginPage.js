@@ -70,7 +70,10 @@ const LoginPage = () => {
         }}
       >
         <Button  type="primary"
-        style={{ borderRadius:"20px"}}
+        style={{
+              borderRadius: "20px",
+              marginRight: "3rem",
+            }}
         >
           <GoogleOutlined />
           Google ile giriş yap
