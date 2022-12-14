@@ -32,9 +32,9 @@ const PostDetail = () => {
           }
         >
           <Meta
-            style={{
-              position: "relative",
-              left: "60px",
+             style={{
+              display: "flex",
+              justifyContent: "center",
             }}
             title={currentPhoto.title}
           />
