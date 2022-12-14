@@ -77,8 +77,8 @@ function Homepage() {
         />
       </div>
 
-      <h1 style={{ position: "relative", left: "110px" }}>BLOG HABERLERİ</h1>
-      <h2 style={{ position: "relative", left: "110px" }}>
+      <h1 style={{ paddingLeft: "6rem" }}>BLOG HABERLERİ</h1>
+      <h2 style={{ paddingLeft: "6rem" }}>
         Blog haber, Blog son dakika haberleri ve gelişmeleri.
       </h2>
       <div className="site-card-wrapper">
@@ -105,7 +105,7 @@ function Homepage() {
       </div>
 
       <Table
-        style={{ position: "relative", left: "150px", bottom: "40px" }}
+        style={{ paddingLeft: "9rem", paddingBottom: "5rem" }}
         columns={columns}
         dataSource={data}
         pagination={false}
