@@ -51,7 +51,7 @@ export default function Navbar() {
           )} */}
         <Menu.Item style={{ marginLeft: "auto" }}>
           <Search
-            placeholder="input search text"
+            placeholder="haber ara"
             onSearch={onSearch}
             style={{
               width: 200,
