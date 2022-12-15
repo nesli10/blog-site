@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Menu, Button } from "antd";
 import { Link } from "react-router-dom";
 import { AudioOutlined } from "@ant-design/icons";
@@ -15,7 +15,13 @@ export default function Navbar() {
 
   // };
   const { Search } = Input;
-
+  const [admin, setAdmin] = useState(false);
+  const removeSearch = () => {
+    setAdmin(true);
+  };
+  const addSearch = () => {
+    setAdmin(false);
+  };
   <AudioOutlined
     style={{
       fontSize: 16,
@@ -28,12 +34,12 @@ export default function Navbar() {
     <div>
       <Menu mode="horizontal" className="navbar">
         <Menu.Item>
-          <Button>
+          <Button onClick={removeSearch}>
             <Link to="/loginpage">Admin </Link>
           </Button>
         </Menu.Item>
         <Menu.Item>
-          <Button>
+          <Button onClick={addSearch}>
             <Link to="/">Anasayfa </Link>
           </Button>
         </Menu.Item>
@@ -49,18 +55,23 @@ export default function Navbar() {
           ) : (
             ""
           )} */}
-        <Menu.Item style={{ marginLeft: "auto" }}>
-          <Search
-            placeholder="haber ara"
-            onSearch={onSearch}
-            style={{
-              width: 200,
-              marginTop: "0.5rem",
-              borderRadius: "20px",
-            }}
-          />
-        </Menu.Item>
+        {!admin ? (
+          <Menu.Item style={{ marginLeft: "auto" }}>
+            <Search
+              placeholder="haber ara"
+              onSearch={onSearch}
+              style={{
+                width: 200,
+                marginTop: "0.5rem",
+                borderRadius: "20px",
+              }}
+            />
+          </Menu.Item>
+        ) : (
+          ""
+        )}
       </Menu>
     </div>
   );
 }
+
