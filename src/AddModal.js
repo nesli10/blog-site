@@ -44,6 +44,7 @@ const AddModal = () => {
       <Button
         style={{
           top: "10px",
+          left: "60px",
         }}
         type="primary"
         onClick={showModal}
