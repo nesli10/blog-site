@@ -38,7 +38,7 @@ export default function Navbar() {
             <Link to="/loginpage">Admin </Link>
           </Button>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item style={{ right: "10px" }}>
           <Button onClick={addSearch}>
             <Link to="/">Anasayfa </Link>
           </Button>
