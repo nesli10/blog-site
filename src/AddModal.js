@@ -43,7 +43,7 @@ const AddModal = () => {
     <>
       <Button
         style={{
-          top: "10px",
+          top: "30px",
           left: "60px",
         }}
         type="primary"
