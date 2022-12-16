@@ -129,7 +129,7 @@ const AdminPage = () => {
             items={items}
           />
         </Sider>
-        <Layout className="site-layout">
+        <Layout style={{ overflow: "hidden" }} className="site-layout">
           <Header
             style={{
               padding: 0,
@@ -151,7 +151,7 @@ const AdminPage = () => {
                   <Button
                     type="primary"
                     style={{
-                      left: "94%",
+                      left: "92%",
                       top: "10px",
                     }}
                     onClick={handleLogout}
@@ -180,4 +180,5 @@ const AdminPage = () => {
 };
 
 export default AdminPage;
+
 
