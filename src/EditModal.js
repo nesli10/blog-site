@@ -48,6 +48,7 @@ const EditModal = ({ oldPhoto }) => {
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={null}
       >
         <Form
           labelCol={{
