@@ -16,14 +16,14 @@ const PostDetail = () => {
           key={currentPhoto.id}
           hoverable
           style={{
-            width: "650px",
+            width: "970px",
             borderRadius: "30px",
             boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
           }}
           cover={
             <img
               style={{
-                height: "350px",
+                height: "400px",
                 borderRadius: "30px",
               }}
               alt="example"
@@ -32,16 +32,16 @@ const PostDetail = () => {
           }
         >
           <Meta
-             style={{
+            style={{
               display: "flex",
               justifyContent: "center",
+              fontWeight: "bold",
             }}
             title={currentPhoto.title}
           />
         </Card>
       </div>
       <div className="detayYazı">
-        <p className="detayBaslık">What is Lorem Ipsum?</p>
         <p style={{ width: "450px", marginInline: "auto" }}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -79,3 +79,4 @@ const PostDetail = () => {
 };
 
 export default PostDetail;
+
