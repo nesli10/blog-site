@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Card } from "antd";
 import { useSelector } from "react-redux";
+import Footer from "./Footer";
 const PostDetail = () => {
   const { photoId } = useParams();
   const photo = useSelector((state) => state.homeReducer.photo);
@@ -74,6 +75,7 @@ const PostDetail = () => {
           from repetition, injected humour, or non-characteristic words etc.
         </p>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
