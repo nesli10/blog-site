@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Table } from "antd";
+import { Card } from "antd";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -10,76 +10,15 @@ import {
 function Homepage() {
   const photoData = useSelector((state) => state.homeReducer.photo);
   const { Meta } = Card;
-  const columns = [
-    {
-      title: "haber",
-      dataIndex: "name",
-      key: "name",
-      render: (text) => <a style={{ color: "black" }}>{text}</a>,
-    },
-    {
-      title: "son dakika",
-      dataIndex: "age",
-      key: "age",
-    },
-    {
-      title: "magazin",
-      dataIndex: "address",
-      key: "address",
-    },
-  ];
-  const data = [
-    {
-      key: "1",
-      name: "spor",
-      age: "sağlık",
-      address: "magazin",
-    },
-    {
-      key: "2",
-      name: "teknoloji",
-      age: "hava durumu",
-      address: "finans",
-    },
-    {
-      key: "3",
-      name: "turizm",
-      age: "tuğba ünsal",
-      address: "cansu dere",
-    },
-  ];
+
   document.title = "Anasayfa";
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "end",
-          gap: "1rem",
-          alignItems: "center",
-        }}
-      >
-        <h3 style={{ position: "relative", top: "5px" }}>Bizi Takip Edin !</h3>
-        <InstagramOutlined
-          style={{
-            fontSize: "20px",
-          }}
-        />
-        <FacebookOutlined
-          style={{
-            fontSize: "20px",
-          }}
-        />
-        <TwitterOutlined
-          style={{
-            fontSize: "20px",
-          }}
-        />
-      </div>
-
-      <h1 style={{ paddingLeft: "6rem" }}>BLOG HABERLERİ</h1>
-      <h2 style={{ paddingLeft: "6rem" }}>
-        Blog haber, Blog son dakika haberleri ve gelişmeleri.
+      <h1 style={{ textAlign: "center", fontWeight: "bold" }}>
+        BLOG HABERLERİ
+      </h1>
+      <h2 style={{ textAlign: "center" }}>
+        Blog haber, Blog son dakika haberleri ve gelişmeleri
       </h2>
       <div className="site-card-wrapper">
         {photoData.length > 0 &&
@@ -91,27 +30,100 @@ function Homepage() {
               style={{
                 width: 240,
               }}
-              cover={<img style={{ borderRadius: "10px" }} alt="example" src={photo.url} />}
+              cover={
+                <Link to={"/detail/" + photo.id}>
+                  <img
+                    style={{ borderRadius: "10px", width: "240px" }}
+                    alt="example"
+                    src={photo.url}
+                  />
+                </Link>
+              }
             >
-              <Meta title={photo.title.slice(0, 20)} />
-              <Link
-                style={{ color: "blue", padding: "170px" }}
-                to={"/detail/" + photo.id}
-              >
-                detay
-              </Link>
+              <Meta
+                style={{ display: "flex", justifyContent: "center" }}
+                title={photo.title.slice(0, 20)}
+              />
             </Card>
           ))}
       </div>
-
-      <Table
-        style={{ paddingLeft: "9rem", paddingBottom: "5rem" }}
-        columns={columns}
-        dataSource={data}
-        pagination={false}
-      />
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>HABERLER</h4>
+              <ul>
+                <li>
+                  <a href="">Canlı Yayın</a>
+                </li>
+                <li>
+                  <a href="">Son Dakika</a>
+                </li>
+                <li>
+                  <a href="">Dünya</a>
+                </li>
+                <li>
+                  <a href="">Spor</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>KATEGORİLER</h4>
+              <ul>
+                <li>
+                  <a href="">Hava Durumu</a>
+                </li>
+                <li>
+                  <a href="">Video</a>
+                </li>
+                <li>
+                  <a href="">Döviz</a>
+                </li>
+                <li>
+                  <a href="">Altın</a>
+                </li>
+                <li>
+                  <a href="">Astroloji</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>TV PROGRAMLARI</h4>
+              <ul>
+                <li>
+                  <a href="">A'dan Z'ye</a>
+                </li>
+                <li>
+                  <a href="">Güne Merhaba</a>
+                </li>
+                <li>
+                  <a href="">Gündem</a>
+                </li>
+                <li>
+                  <a href="">Bugün</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>bizi takip edin</h4>
+              <div class="social-links">
+                <a href="https://www.instagram.com/cnnturk/">
+                  <InstagramOutlined />
+                </a>
+                <a href="">
+                  <FacebookOutlined />
+                </a>
+                <a href="">
+                  <TwitterOutlined />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
 export default Homepage;
+
 
