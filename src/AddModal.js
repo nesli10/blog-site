@@ -56,6 +56,7 @@ const AddModal = () => {
         open={isModalOpen}
         onOk={handleCancel}
         onCancel={handleCancel}
+        footer={null}
       >
         <Form
         form={form}
