@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Menu, Button } from "antd";
+import { Menu } from "antd";
 import { Link } from "react-router-dom";
-import { AudioOutlined } from "@ant-design/icons";
-import { Input } from "antd";
+
 //import { useNavigate } from "react-router-dom";
 //import { useSelector } from "react-redux";
 
@@ -14,34 +13,19 @@ export default function Navbar() {
   //   navigate("/loginpage");
 
   // };
-  const { Search } = Input;
-  const [admin, setAdmin] = useState(false);
-  const removeSearch = () => {
-    setAdmin(true);
-  };
-  const addSearch = () => {
-    setAdmin(false);
-  };
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: "#1890ff",
-    }}
-  />;
 
-  const onSearch = (value) => console.log(value);
   return (
     <div>
       <Menu mode="horizontal" className="navbar">
-        <Menu.Item>
-          <Button onClick={removeSearch}>
-            <Link to="/loginpage">Admin </Link>
-          </Button>
+        <Menu.Item style={{ display: "flex", alignItems: "center" }}>
+          <Link style={{ color: "black", fontWeight: "bold" }} to="/loginpage">
+            ADMİN
+          </Link>
         </Menu.Item>
-        <Menu.Item style={{ right: "10px" }}>
-          <Button onClick={addSearch}>
-            <Link to="/">Anasayfa </Link>
-          </Button>
+        <Menu.Item style={{ display: "flex", alignItems: "center" }}>
+          <Link style={{ color: "black", fontWeight: "bold" }} to="/">
+            ANASAYFA
+          </Link>
         </Menu.Item>
         {/* {loginData.token ? (
             <Button 
@@ -55,23 +39,7 @@ export default function Navbar() {
           ) : (
             ""
           )} */}
-        {!admin ? (
-          <Menu.Item style={{ marginLeft: "auto" }}>
-            <Search
-              placeholder="haber ara"
-              onSearch={onSearch}
-              style={{
-                width: 200,
-                marginTop: "0.5rem",
-                borderRadius: "20px",
-              }}
-            />
-          </Menu.Item>
-        ) : (
-          ""
-        )}
       </Menu>
     </div>
   );
 }
-
