@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
 import Homepage from "./components/Homepage";
 import PostDetail from "./components/PostDetail";
 import { Routes, Route } from "react-router-dom";
@@ -19,7 +18,6 @@ function App() {
 
   return (
     <div>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
         <Route path="/loginpage" element={<LoginPage />}></Route>
