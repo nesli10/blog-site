@@ -20,13 +20,12 @@ const AddModal = () => {
       Actions.homePageActions.addNews({
         title,
         photo: photo[0],
-        newDate: ( Number(new Date())),
+        newDate: Number(new Date()),
       })
     );
     form.resetFields();
     setIsModalOpen(false);
     alertify.success("eklendi");
-    
   };
 
   const validateMessages = {
@@ -41,14 +40,7 @@ const AddModal = () => {
 
   return (
     <>
-      <Button
-        style={{
-          top: "30px",
-          left: "60px",
-        }}
-        type="primary"
-        onClick={showModal}
-      >
+      <Button className="addmodalbuton" type="primary" onClick={showModal}>
         Ekle
       </Button>
       <Modal
@@ -59,7 +51,7 @@ const AddModal = () => {
         footer={null}
       >
         <Form
-        form={form}
+          form={form}
           labelCol={{
             span: 8,
           }}
@@ -71,7 +63,7 @@ const AddModal = () => {
           validateMessages={validateMessages}
         >
           <Form.Item name="title" label="Title">
-            <Input  />
+            <Input />
           </Form.Item>
           <Form.Item
             name="photo"
@@ -97,7 +89,7 @@ const AddModal = () => {
               offset: 8,
             }}
           >
-            <Button  type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit">
               Submit
             </Button>
           </Form.Item>
@@ -108,4 +100,5 @@ const AddModal = () => {
 };
 
 export default AddModal;
+
 
