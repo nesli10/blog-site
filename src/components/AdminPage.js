@@ -1,24 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Actions from "../redux/actions";
-import {
-  Button,
-  Space,
-  Table,
-  Popconfirm,
-  Breadcrumb,
-  Layout,
-  Menu,
-  theme,
-} from "antd";
+import { Helmet } from "react-helmet";
+import { Button, Space, Table, Popconfirm, Layout, Menu } from "antd";
 import {
   QuestionCircleOutlined,
   DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
   UserOutlined,
+  AppstoreOutlined,
 } from "@ant-design/icons";
 import alertify from "alertifyjs";
 import AddModal from "../AddModal";
@@ -33,6 +23,7 @@ function getItem(label, key, icon, children) {
   };
 }
 const items = [
+  getItem(<Link to="/">ANASAYFA</Link>, "1", <AppstoreOutlined />),
   getItem("haberler", "2", <DesktopOutlined />),
   getItem("kullanıcılar", "sub1", <UserOutlined />, [
     getItem("Tom", "3"),
@@ -43,8 +34,6 @@ const items = [
 const AdminPage = () => {
   const photoData = useSelector((state) => state.homeReducer.photo);
   const dispatch = useDispatch();
-  document.title = "Admin Sayfası";
-
   const removePhoto = (id) => {
     dispatch(Actions.homePageActions.deleteNews(id));
     alertify.error("silindi");
@@ -102,13 +91,15 @@ const AdminPage = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Admin Sayfası</title>
+      </Helmet>
       <Layout
         style={{
           minHeight: "100vh",
         }}
       >
         <Sider
-          style={{ position: "relative", bottom: "1px" }}
           collapsible
           collapsed={collapsed}
           onCollapse={(value) => setCollapsed(value)}
@@ -124,23 +115,14 @@ const AdminPage = () => {
           </div>
           <Menu
             theme="dark"
-            defaultSelectedKeys={["1"]}
+            defaultSelectedKeys={["2"]}
             mode="inline"
             items={items}
           />
         </Sider>
-        <Layout style={{ overflow: "hidden" }} className="site-layout">
-          <Header
-            style={{
-              padding: 0,
-              height: "0px",
-            }}
-          />
-          <Content
-            style={{
-              margin: "0 16px",
-            }}
-          >
+        <Layout className="site-layout">
+          <Header className="adminheader" />
+          <Content className="admincontent">
             <div
               style={{
                 minHeight: 360,
@@ -149,11 +131,8 @@ const AdminPage = () => {
               <div>
                 {admin ? (
                   <Button
+                    className="adminbuton"
                     type="primary"
-                    style={{
-                      left: "92%",
-                      top: "10px",
-                    }}
                     onClick={handleLogout}
                   >
                     logout
@@ -165,7 +144,7 @@ const AdminPage = () => {
               <AddModal></AddModal>
               <div>
                 <Table
-                  style={{ margin: "50px" }}
+                  className="admintable"
                   pagination={false}
                   columns={columns}
                   dataSource={photoData.slice(4980)}
@@ -180,5 +159,4 @@ const AdminPage = () => {
 };
 
 export default AdminPage;
-
 
