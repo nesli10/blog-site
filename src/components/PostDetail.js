@@ -3,47 +3,33 @@ import { useParams } from "react-router-dom";
 import { Card } from "antd";
 import { useSelector } from "react-redux";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
+import { Helmet } from "react-helmet";
 const PostDetail = () => {
   const { photoId } = useParams();
   const photo = useSelector((state) => state.homeReducer.photo);
   const currentPhoto = photo.find((p) => p.id == photoId);
   const { Meta } = Card;
-  document.title = "Detay Sayfası";
   return (
     <div>
+      <Helmet>
+        <title>Detay Sayfası</title>
+      </Helmet>
+      <Navbar></Navbar>
       <div className="site-card-wrapper2">
         <Card
           className="detailcard"
           key={currentPhoto.id}
           hoverable
-          style={{
-            width: "970px",
-            borderRadius: "30px",
-            boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-          }}
           cover={
-            <img
-              style={{
-                height: "400px",
-                borderRadius: "30px",
-              }}
-              alt="example"
-              src={currentPhoto.url}
-            />
+            <img className="detailfoto" alt="example" src={currentPhoto.url} />
           }
         >
-          <Meta
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              fontWeight: "bold",
-            }}
-            title={currentPhoto.title}
-          />
+          <Meta className="detailbaslik" title={currentPhoto.title} />
         </Card>
       </div>
-      <div className="detayYazı">
-        <p style={{ width: "450px", marginInline: "auto" }}>
+      <div className="detayYazi">
+        <p className="detayyazi2">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and
@@ -81,4 +67,3 @@ const PostDetail = () => {
 };
 
 export default PostDetail;
-
