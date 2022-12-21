@@ -92,7 +92,7 @@ const LoginPage = () => {
           </Form.Item>
 
           <Form.Item
-            label="Password"
+            label="şifre"
             name="password"
             rules={[
               {
@@ -112,7 +112,7 @@ const LoginPage = () => {
               span: 16,
             }}
           >
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>Beni Hatırla</Checkbox>
           </Form.Item>
 
           <Form.Item
@@ -122,7 +122,7 @@ const LoginPage = () => {
             }}
           >
             <Button type="primary" htmlType="submit">
-              Submit
+              Giriş
             </Button>
           </Form.Item>
         </div>
