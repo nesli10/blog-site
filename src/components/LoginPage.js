@@ -3,15 +3,14 @@ import { Button, Checkbox, Form, Input } from "antd";
 //import Actions from "../redux/actions";
 //import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { GoogleOutlined } from '@ant-design/icons';
-
+import { GoogleOutlined } from "@ant-design/icons";
+import Navbar from "./Navbar";
+import { Helmet } from "react-helmet";
 
 const LoginPage = () => {
-  document.title = "Giriş Sayfası"
   //const dispatch = useDispatch();
-  const navigate = useNavigate();
   //const loginData = useSelector((state) => state.login);
- 
+
   // const onFinish = (values) => {
   //   // betul.aydemir@mahrek.com.tr
   //   // 123
@@ -23,16 +22,17 @@ const LoginPage = () => {
   //     })
   //   );
   // };
-   const [admin,setAdmin] =useState(false);
-    const onFinish = ()=>{
-      setAdmin(true);
+  const navigate = useNavigate();
+  const [admin, setAdmin] = useState(false);
+  const onFinish = () => {
+    setAdmin(true);
+  };
+  useEffect(() => {
+    if (admin) {
+      navigate("/adminpage");
     }
-   useEffect(() =>{
-    if(admin){
-      navigate("/adminpage")
-    }
-    },[admin] );
-  
+  }, [admin]);
+
   // useEffect(() => {
   //   if (loginData.token) {
   //     navigate("/adminpage");
@@ -42,91 +42,91 @@ const LoginPage = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
- 
 
   return (
-    <div>
-    <h1 className="loginbaslik">GİRİŞ SAYFASI</h1>
-    <Form
-      className="login"
-      name="basic"
-      labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 16,
-      }}
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <Form.Item
+    <div className="login">
+      <Helmet>
+        <title>Giriş Sayfası</title>
+      </Helmet>
+      <Navbar></Navbar>
+      <h1 className="loginbaslik">GİRİŞ SAYFASI</h1>
+      <Form
+        className="loginform"
+        name="basic"
+        labelCol={{
+          span: 8,
+        }}
         wrapperCol={{
-          offset: 10,
           span: 16,
         }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
       >
-        <Button  type="primary"
-        style={{
-              borderRadius: "20px",
-              marginRight: "3rem",
+        <div className="loginitem">
+          <Form.Item
+            wrapperCol={{
+              offset: 10,
+              span: 16,
             }}
-        >
-          <GoogleOutlined />
-          Google ile giriş yap
-        </Button>
-      </Form.Item>
-      <Form.Item
-        label="email"
-        name="email"
-        rules={[
-          {
-            required: true,
-            message: "Please input your username!",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+          >
+            <Button className="googlebuton" type="primary">
+              <GoogleOutlined />
+              Google ile giriş yap
+            </Button>
+          </Form.Item>
+          <Form.Item
+            label="email"
+            name="email"
+            rules={[
+              {
+                required: true,
+                message: "Please input your username!",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
 
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: "Please input your password!",
-          },
-        ]}
-      >
-        <Input.Password />
-      </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: "Please input your password!",
+              },
+            ]}
+          >
+            <Input.Password />
+          </Form.Item>
 
-      <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
+          <Form.Item
+            name="remember"
+            valuePropName="checked"
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          >
+            <Checkbox>Remember me</Checkbox>
+          </Form.Item>
 
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button   type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+          <Form.Item
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          >
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+        </div>
+      </Form>
     </div>
   );
 };
