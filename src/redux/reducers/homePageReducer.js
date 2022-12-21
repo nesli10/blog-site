@@ -21,7 +21,6 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         photo: [
-          ...state.photo,
           {
             id: action.payload.newDate,
             url: newPhoto.thumbUrl,
@@ -29,6 +28,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
             albumId: newPhoto.uid,
             title: action.payload.title,
           },
+          ...state.photo,
         ],
       };
     case ActionTypes.home.EDIT_NEWS:
@@ -45,10 +45,11 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
       });
       return {
         ...state,
-        photo: [...newPhotos],
+        photo: newPhotos,
       };
     default:
       return state;
   }
 };
 export default homePageReducer;
+
