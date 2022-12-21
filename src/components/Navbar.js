@@ -17,13 +17,13 @@ export default function Navbar() {
   return (
     <div>
       <Menu mode="horizontal" className="navbar">
-        <Menu.Item style={{ display: "flex", alignItems: "center" }}>
-          <Link style={{ color: "black", fontWeight: "bold" }} to="/loginpage">
+        <Menu.Item className="navbaritem">
+          <Link className="navbarlink" to="/loginpage">
             ADMİN
           </Link>
         </Menu.Item>
-        <Menu.Item style={{ display: "flex", alignItems: "center" }}>
-          <Link style={{ color: "black", fontWeight: "bold" }} to="/">
+        <Menu.Item className="navbaritem">
+          <Link className="navbarlink" to="/">
             ANASAYFA
           </Link>
         </Menu.Item>
@@ -43,3 +43,4 @@ export default function Navbar() {
     </div>
   );
 }
+
