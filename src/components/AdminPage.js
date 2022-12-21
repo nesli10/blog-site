@@ -145,9 +145,8 @@ const AdminPage = () => {
               <div>
                 <Table
                   className="admintable"
-                  pagination={false}
                   columns={columns}
-                  dataSource={photoData.slice(4980)}
+                  dataSource={photoData}
                 />
               </div>
             </div>
@@ -159,4 +158,5 @@ const AdminPage = () => {
 };
 
 export default AdminPage;
+
 
