@@ -10,7 +10,7 @@ function Homepage() {
   const photoData = useSelector((state) => state.homeReducer.photo);
   const { Meta } = Card;
   const [itemOffset, setItemOffset] = useState([]);
-  const itemsPerPage = 60;
+  const itemsPerPage = 40;
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = photoData.slice(itemOffset, endOffset);
 
