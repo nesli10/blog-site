@@ -3,17 +3,20 @@ import { Card } from "antd";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
+import { Helmet } from "react-helmet";
 function Homepage() {
   const photoData = useSelector((state) => state.homeReducer.photo);
   const { Meta } = Card;
 
-  document.title = "Anasayfa";
   return (
     <div>
-      <h1 style={{ textAlign: "center", fontWeight: "bold" }}>
-        BLOG HABERLERİ
-      </h1>
-      <h2 style={{ textAlign: "center" }}>
+      <Helmet>
+        <title>Anasayfa</title>
+      </Helmet>
+      <Navbar></Navbar>
+      <h1 className="anasayfabaslik">BLOG HABERLERİ</h1>
+      <h2 className="anasayfaaltbaslik">
         Blog haber, Blog son dakika haberleri ve gelişmeleri
       </h2>
       <div className="site-card-wrapper">
@@ -28,16 +31,12 @@ function Homepage() {
               }}
               cover={
                 <Link to={"/detail/" + photo.id}>
-                  <img
-                    style={{ borderRadius: "10px", width: "240px" }}
-                    alt="example"
-                    src={photo.url}
-                  />
+                  <img className="anasayfafoto" alt="example" src={photo.url} />
                 </Link>
               }
             >
               <Meta
-                style={{ display: "flex", justifyContent: "center" }}
+                className="anasayfafotobaslik"
                 title={photo.title.slice(0, 20)}
               />
             </Card>
