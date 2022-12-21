@@ -13,34 +13,106 @@ overflow: hidden;
   overflow: hidden;
   padding:10px;
   }
-
-
+ .anasayfabaslik{
+  text-align: center;
+  font-weight: bold ;
+}
+.anasayfaaltbaslik{
+  text-align: center;
+}
+.anasayfafoto{
+  border-radius: 10px !important;
+  width: 240px ;
+}
+.anasayfafotobaslik{
+ display: flex;
+ justify-content: center ;
+}
+.googlebuton{
+    border-radius: 20px;
+    margin-right:  3rem;
+}
 .card1{
 margin: 30px;
 border-radius: 10px;
 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.detayYazı{
+.detayYazi{
 padding-left: 90px;
 padding-right: 90px;
 padding-bottom: 60px;
 }
-
-
+.detayyazi2{
+  width: 450px;
+  margin-inline: auto ;
+}
+.detailcard{
+ width: 970px;
+ border-radius: 30px;
+ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.detailfoto{
+ height: 400px;
+ border-radius: 30px !important;
+}
+.detailbaslik{
+ display: flex;
+ justify-content: center;
+ font-weight: bold ;
+}
 .navbar {
 height: 65px;
 justify-content: center;
 }
-
-.login{
+.navbaritem{
+   display: flex;
+   align-items: center;
+}
+.navbarlink{
+  color: black;
+  font-weight: bold ;
+}
+.loginitem{
+ margin-right: 50px;
+ padding-bottom: 10px;
+}
+.loginform{
     width: 35%;
     position: relative;
-    left:30%; 
+    left:32%; 
+    top:15px;
     padding-top:40px;
+    box-sizing: border-box;
+    background-color: rgb(119, 130, 130);
+    border-radius: 20px;
+    -webkit-box-shadow: 0 0 6px 4px black;
+	-moz-box-shadow: 0 0 6px 4px black;
+	box-shadow: 0 0 6px 4px black;
 }
  .loginbaslik{
     text-align: center;
-   padding-top: 10%;
+    margin-top: 60px;
+ }
+ .site-layout{
+    overflow: hidden;
+ }
+ .adminheader{
+    padding: 0;
+    height: 0px;
+ }
+ .admincontent{
+  margin: 0 16px;
+ }
+ .adminbuton{
+    left: 92%;
+    top: 10px;
+ }
+ .admintable{
+    margin: 50px;
+ }
+ .addmodalbuton{
+    top: 30px;
+    left: 60px;
  }
  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,500;1,400&display=swap');
 *{
@@ -132,6 +204,7 @@ body{
     }
 }
  
+
 
 
 
