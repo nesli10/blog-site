@@ -52,4 +52,3 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
   }
 };
 export default homePageReducer;
-
