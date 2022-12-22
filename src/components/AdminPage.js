@@ -55,19 +55,19 @@ const AdminPage = () => {
       sorter: (a, b) => a.id - b.id,
     },
     {
-      title: "title",
+      title: "başlık",
       dataIndex: "title",
       key: "title",
     },
     {
-      title: "photo",
+      title: "fotoğraf",
       dataIndex: "url",
       key: "url",
       render: (url) => <img width="20%" src={url} />,
     },
 
     {
-      title: "islem",
+      title: "işlem",
       render: (photo) => (
         <>
           <Space size="middle">
@@ -135,7 +135,7 @@ const AdminPage = () => {
                     type="primary"
                     onClick={handleLogout}
                   >
-                    logout
+                    Çıkış
                   </Button>
                 ) : (
                   ""
@@ -158,3 +158,4 @@ const AdminPage = () => {
 };
 
 export default AdminPage;
+
