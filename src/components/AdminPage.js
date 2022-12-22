@@ -72,7 +72,7 @@ const AdminPage = () => {
         <>
           <Space size="middle">
             <Popconfirm
-              title="Are you sure？"
+              title="Emin Misiniz？"
               onConfirm={() => removePhoto(photo.id)}
               icon={<QuestionCircleOutlined style={{ color: "red" }} />}
             >
@@ -158,4 +158,5 @@ const AdminPage = () => {
 };
 
 export default AdminPage;
+
 
