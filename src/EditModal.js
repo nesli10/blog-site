@@ -11,13 +11,15 @@ const EditModal = ({ oldPhoto }) => {
     const { title, thumbnailUrl } = values;
     const updatedUser = {
       title: title ? title : oldPhoto.title,
-      thumbnailUrl: thumbnailUrl ?  thumbnailUrl[0].thumbUrl : oldPhoto.thumbnailUrl,
+      thumbnailUrl: thumbnailUrl
+        ? thumbnailUrl[0].thumbUrl
+        : oldPhoto.thumbnailUrl,
       id: oldPhoto.id,
     };
     dispatch(Actions.homePageActions.editNews(updatedUser));
     setIsModalOpen(false);
-    if(title || thumbnailUrl){
-    alertify.success("güncellendi");
+    if (title || thumbnailUrl) {
+      alertify.success("güncellendi");
     }
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,12 +62,12 @@ const EditModal = ({ oldPhoto }) => {
           name="nest-messages"
           onFinish={handleUpdate}
         >
-          <Form.Item name="title" label="Title">
+          <Form.Item name="title" label="Başlık">
             <Input name="title" defaultValue={oldPhoto.title} />
           </Form.Item>
           <Form.Item
             name="thumbnailUrl"
-            label="Upload"
+            label="Fotoğraf"
             valuePropName="fileList"
             getValueFromEvent={normFile}
           >
@@ -94,7 +96,7 @@ const EditModal = ({ oldPhoto }) => {
             }}
           >
             <Button type="primary" htmlType="submit">
-              Submit
+              Düzenle
             </Button>
           </Form.Item>
         </Form>
