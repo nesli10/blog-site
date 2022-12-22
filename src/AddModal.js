@@ -44,7 +44,7 @@ const AddModal = () => {
         Ekle
       </Button>
       <Modal
-        title="Add News"
+        title="Ekle"
         open={isModalOpen}
         onOk={handleCancel}
         onCancel={handleCancel}
@@ -62,12 +62,12 @@ const AddModal = () => {
           onFinish={onFinish}
           validateMessages={validateMessages}
         >
-          <Form.Item name="title" label="Title">
+          <Form.Item name="title" label="Başlık">
             <Input />
           </Form.Item>
           <Form.Item
             name="photo"
-            label="Upload"
+            label="Fotoğraf"
             valuePropName="fileList"
             getValueFromEvent={normFile}
             extra="photo"
@@ -90,7 +90,7 @@ const AddModal = () => {
             }}
           >
             <Button type="primary" htmlType="submit">
-              Submit
+              Ekle
             </Button>
           </Form.Item>
         </Form>
